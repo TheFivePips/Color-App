@@ -1,1 +1,2 @@
-This is a larger code along project from Colt steele that practices using React
+This is a larger code along project from Colt steele that practices using React and CSS.
+It will also use MaterialUI, JSS, chroma, emoji-mart, react-copy-to-clipboard, react sortable HOC, react form validator
