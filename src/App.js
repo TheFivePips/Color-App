@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
-import Palette from './Palette';
+import PaletteRouteDetails from './PaletteRouteDetails';
 import { seedColors } from './seedColors';
-import {generatePalette} from './colorHelpers'
+import {Route, Routes} from 'react-router-dom'
+import PaletteList from './PaletteList';
 
-class App extends Component {
+class App extends Component{
+
+  
   render() {
     return (
-      <div>
-        <Palette palette={generatePalette(seedColors[4])}/>
-        
-      </div>
+      <Routes>
+        <Route exact path="/" element={<PaletteList palettes={seedColors}/>} />
+        <Route
+          exact
+          path="/palette/:id"
+          element={<PaletteRouteDetails seeds={seedColors}/>}
+        />
+      </Routes>
+      //   <div>
+      //     <Palette palette={generatePalette(seedColors[4])}/>
+
+      //   </div>
     );
   }
 }
