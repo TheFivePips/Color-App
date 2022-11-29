@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import Slider from "rc-slider";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
-import Snackbar from "@mui/material/Snackbar";
+import {Select, MenuItem, Snackbar, IconButton} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom';
 import "rc-slider/assets/index.css";
-import "./Navbar.css"
+import "./Navbar.scss"
 
 class Navbar extends Component {
   constructor(props){

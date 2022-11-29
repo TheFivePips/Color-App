@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ColorBox from './colorBox';
-import './Palette.css'
+import './Palette.scss'
 import Navbar from './Navbar';
 class Palette extends Component {
     constructor(props){

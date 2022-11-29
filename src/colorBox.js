@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './colorBox.css'
+import './colorBox.scss'
 import { CopyToClipboard } from "react-copy-to-clipboard"
 
 class ColorBox extends Component {
