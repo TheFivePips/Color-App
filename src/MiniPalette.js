@@ -2,7 +2,7 @@ import React from 'react';
 // import { styled } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
 
-import './MiniPalette.scss'
+import './styles/main.scss'
 const MiniPalette = (props) => {
 
   const navigate = useNavigate()

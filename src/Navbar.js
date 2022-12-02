@@ -4,7 +4,7 @@ import {Select, MenuItem, Snackbar, IconButton} from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from 'react-router-dom';
 import "rc-slider/assets/index.css";
-import "./Navbar.scss"
+import "./styles/main.scss"
 
 class Navbar extends Component {
   constructor(props){

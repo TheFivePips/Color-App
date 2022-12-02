@@ -2,7 +2,7 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 import MiniPalette from './MiniPalette' ;
 // import { Link } from 'react-router-dom'
-import './PaletteList.scss'
+import './styles/main.scss'
 
 const PaletteList = ({palettes}) => {
 
