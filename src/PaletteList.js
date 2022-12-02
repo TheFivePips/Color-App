@@ -1,7 +1,6 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import MiniPalette from './MiniPalette' ;
-// import { Link } from 'react-router-dom'
 import './styles/main.scss'
 
 const PaletteList = ({palettes}) => {
@@ -14,6 +13,7 @@ const PaletteList = ({palettes}) => {
         <div className="pl-container">
             <nav className="pl-nav">
             <h1>React Colors</h1>
+            <Link to={'/palette/new'}>Create New Palette</Link>
             </nav>
             <div className="pl-palettes">
             {palettes.map((palette) => (

@@ -5,6 +5,7 @@ import {Route, Routes} from 'react-router-dom'
 import PaletteList from './PaletteList';
 // import SingleColorPalette from './SingleColorPalette';
 import SCPRouteDetails from './SCPRouteDetails'
+import NewPaletteForm from './NewPaletteForm';
 
 class App extends Component{
 
@@ -20,7 +21,7 @@ class App extends Component{
         <Route 
           path='/palette/:id/:colorId'
           element={<SCPRouteDetails seeds={seedColors}/>}/>
-        
+        <Route path='/palette/new' element={<NewPaletteForm/>}/>
       </Routes>
       //   <div>
       //     <Palette palette={generatePalette(seedColors[4])}/>

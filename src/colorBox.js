@@ -26,22 +26,28 @@ class ColorBox extends Component {
           <CopyToClipboard text={background} onCopy={this.changeCopyState}>
             <div className="ColorBox" style={{ background }}>
               <div
-                className={`copy-overlay ${copied && "show"}`}
+                className={`copy-overlay ${copied ? "show" : undefined}`}
                 style={{ background }}
               />
-              <div className={`copy-msg ${copied && "show"}`}>
+              <div className={`copy-msg ${copied ? "show" : undefined}`}>
                 <h1>copied!</h1>
-                <p className='copy-text'>{this.props.background}</p>
+                <p className="copy-text">{this.props.background}</p>
               </div>
               <div className="copy-container">
                 <div className="box-content">
-                  <span className={isDarkColor && 'light-text'}>{name}</span>
+                  <span className={isDarkColor ? "light-text" : undefined}>{name}</span>
                 </div>
-                <button className={`copy-button ${isLightColor && 'dark-text'}`}>Copy</button>
+                <button
+                  className={`copy-button ${isLightColor ? "dark-text" : undefined}`}
+                >
+                  Copy
+                </button>
               </div>
               {showLink && (
                 <Link to={moreURL} onClick={(e) => e.stopPropagation()}>
-                  <span className={`see-more ${isLightColor && 'dark-text'}`}>MORE</span>
+                  <span className={`see-more ${isLightColor ? "dark-text" : undefined}`}>
+                    MORE
+                  </span>
                 </Link>
               )}
             </div>
