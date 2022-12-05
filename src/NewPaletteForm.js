@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -65,16 +65,24 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 
 export default function NewPaletteForm() {
-    const theme = useTheme();
-    const [open, setOpen] = React.useState(false);
-    const [color, setColor] = React.useState("#aabbcc");
-    const [colorsArray, setColorsArray] = React.useState([{color: 'blue', name: 'blue'}])
-    const [newName, setNewName] = React.useState("")
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(false);
+  const [color, setColor] = React.useState("#aabbcc");
+  const [colorsArray, setColorsArray] = React.useState([])
+  const [newName, setNewName] = React.useState("")
 
-
+  useEffect(() => {
+    ValidatorForm.addValidationRule("isColorNameUnique", (value) =>
+      colorsArray.every(
+        ({ name }) => name.toLowerCase() !== value.toLowerCase()
+      )
+    );
+    setNewName('')
+  }, [colorsArray]);
+  
    
     
-    const handleDrawerOpen = () => {
+  const handleDrawerOpen = () => {
     setOpen(true);
   };
 
@@ -96,7 +104,7 @@ export default function NewPaletteForm() {
         name: newName
     }
     setColorsArray([...colorsArray, newColor])
-    console.log(colorsArray);
+    
   }
   
   return (
@@ -156,8 +164,8 @@ export default function NewPaletteForm() {
           <TextValidator
             value={newName}
             onChange={handleNameChange}
-            validators={["required"]}
-            errorMessages={["This field is required"]}
+            validators={["required", "isColorNameUnique"]}
+            errorMessages={["This field is required", "The color name must be unique"]}
           />
           <Button
             variant="contained"
@@ -173,7 +181,7 @@ export default function NewPaletteForm() {
         <DrawerHeader />
 
         {colorsArray.map((color) => (
-          <DragableColorBox color={color.color} name={color.name} />
+          <DragableColorBox color={color.color} name={color.name} key={color.name}/>
         ))}
       </Main>
     </Box>
