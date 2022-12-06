@@ -17,6 +17,9 @@ import Button from "@mui/material/Button";
 import DragableColorBox from './DragableColorBox';
 import { HexColorPicker } from "react-colorful";
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+
+
+
 const drawerWidth = 400;
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
@@ -136,6 +139,12 @@ export default function NewPaletteForm(props) {
     props.savePalette(newPalette)
     navigate('/')
   }
+
+  const removeColor = (colorName) => {
+    setColorsArray(
+      colorsArray.filter(color => color.name !== colorName)
+    )
+  }
   
   return (
     <Box sx={{ display: "flex" }}>
@@ -232,6 +241,7 @@ export default function NewPaletteForm(props) {
             color={color.color}
             name={color.name}
             key={color.name}
+            handleClick={() => removeColor(color.name)}
           />
         ))}
       </Main>
