@@ -14,9 +14,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Button from "@mui/material/Button";
-import DragableColorBox from './DragableColorBox';
+import DraggableColorList from './DraggableColorList';
 import { HexColorPicker } from "react-colorful";
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { arrayMove } from 'react-sortable-hoc';
 
 
 
@@ -145,6 +146,12 @@ export default function NewPaletteForm(props) {
       colorsArray.filter(color => color.name !== colorName)
     )
   }
+
+  const onSortEnd = ({oldIndex, newIndex}) => {
+    setColorsArray(
+      arrayMove(colorsArray, oldIndex, newIndex)
+    )
+  }
   
   return (
     <Box sx={{ display: "flex" }}>
@@ -235,15 +242,13 @@ export default function NewPaletteForm(props) {
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
-
-        {colorsArray.map((color) => (
-          <DragableColorBox
-            color={color.color}
-            name={color.name}
-            key={color.name}
-            handleClick={() => removeColor(color.name)}
-          />
-        ))}
+        <DraggableColorList
+         colors={colorsArray}
+         removeColor={removeColor}
+         axis='xy'
+         onSortEnd={onSortEnd}
+        />
+        
       </Main>
     </Box>
   );
