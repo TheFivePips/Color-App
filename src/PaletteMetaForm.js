@@ -57,6 +57,7 @@ const PaletteMetaForm = (props) => {
     return (
       <div>
         <Dialog open={open === 'emoji'}>
+          <DialogTitle style={{backgroundColor:"black", color:"white"}}>Please Choose a Palette Emoji</DialogTitle>
           <Picker 
             data={data} 
             onEmojiSelect={handleSubmit}
