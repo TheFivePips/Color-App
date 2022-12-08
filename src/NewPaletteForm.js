@@ -1,6 +1,4 @@
 import React from 'react';
-import useHandleChange from './hooks/useHandleChange';
-import { useNavigate } from 'react-router';
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -56,14 +54,10 @@ export default function NewPaletteForm(props) {
   const [open, setOpen] = React.useState(false);
   const [colorsArray, setColorsArray] = React.useState(props.palettes[0].colors)
 
-  const [newPaletteName, setNewPaletteName] = useHandleChange("");
 
 
-  const navigate = useNavigate();
    
-  const handleSetNewPaletteName = (e) => {
-    setNewPaletteName(e)
-  } 
+ 
 
   const handleSetColorsArray = (arr) => {
     setColorsArray(arr)
@@ -77,16 +71,7 @@ export default function NewPaletteForm(props) {
     setOpen(false);
   };
 
-  const handleSubmit= () => {
-    const newName = newPaletteName;
-    const newPalette = {
-      paletteName: newName,
-      id: newName.toLowerCase().replace(/ /g, "-"),
-      colors: colorsArray
-    }
-    props.savePalette(newPalette)
-    navigate('/')
-  }
+ 
 
   const removeColor = (colorName) => {
     setColorsArray(
@@ -109,7 +94,7 @@ export default function NewPaletteForm(props) {
     let randomColor = allColors[rand]
     // just adding some slightly better randomization
     if(colorsArray.includes(randomColor)){
-      randomColor = allColors[rand + 1]
+      randomColor = allColors[rand + rand]
       setColorsArray([...colorsArray, randomColor]);
     } else {
       setColorsArray([...colorsArray, randomColor]);
@@ -122,10 +107,9 @@ export default function NewPaletteForm(props) {
       <NewPaletteFormNav 
         drawerWidth={drawerWidth} 
         open={open}
-        handleSetNewPaletteName={handleSetNewPaletteName} 
-        newPaletteName={newPaletteName}
+        colorsArray={colorsArray}
         handleDrawerOpen={handleDrawerOpen}
-        handleSubmit={handleSubmit} 
+        savePalette={props.savePalette}
         palettes={props.palettes}
       />
       <Drawer

@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import { HexColorPicker } from "react-colorful";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import Typography from "@mui/material/Typography";
+import './styles/main.scss'
 
 
 const ColorPickerForm = (props) => {
@@ -53,9 +54,9 @@ const ColorPickerForm = (props) => {
 
 
     return (
-      <div>
+      <div className="CP-container">
         <Typography variant="h4">Design your Palette</Typography>
-        <div>
+        <div className="CP-btns">
           <Button variant="contained" color="secondary" onClick={clearColors}>
             Clear Palette
           </Button>
@@ -68,9 +69,13 @@ const ColorPickerForm = (props) => {
             Random Color
           </Button>
         </div>
-        <HexColorPicker color={currentColor} onChange={handleColorChange} />
+        <HexColorPicker color={currentColor} onChange={handleColorChange} className='CP-picker' />
         <ValidatorForm onSubmit={addNewColor}>
           <TextValidator
+            placeholder="Enter a color name"
+            className="CP-colorinput"
+            variant='filled'
+            margin='normal'
             value={newColorName}
             onChange={setNewColorName}
             validators={["required", "isColorNameUnique", "isColorUnique"]}
@@ -86,6 +91,7 @@ const ColorPickerForm = (props) => {
             style={{ backgroundColor: paletteIsFull ? "grey" : currentColor }}
             type="submit"
             disabled={paletteIsFull}
+            className='CP-addcolor'
           >
             {paletteIsFull ? "Palette is full" : "Add Color"}
           </Button>
