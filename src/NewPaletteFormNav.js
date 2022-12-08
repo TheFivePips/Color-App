@@ -1,4 +1,4 @@
-
+import { useEffect } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -33,7 +33,17 @@ const AppBar = styled(MuiAppBar, {
 
 export default function NewPaletteFormNav (props) {
 
-    const {open, handleDrawerOpen, handleSubmit, handleSetNewPaletteName, newPaletteName } = props
+    const {open, handleDrawerOpen, handleSubmit, handleSetNewPaletteName, newPaletteName, palettes } = props
+
+
+     useEffect(() => {
+       ValidatorForm.addValidationRule("isPaletteNameUnique", (value) =>
+         palettes.every(
+           ({ paletteName }) =>
+             paletteName.toLowerCase() !== value.toLowerCase()
+         )
+       );
+     }, [palettes]);
 
 
     return (
