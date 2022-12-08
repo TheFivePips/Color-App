@@ -1,3 +1,5 @@
+
+import React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -24,6 +26,7 @@ const AppBar = styled(MuiAppBar, {
     }),
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'Center',
     height: '64px',
     ...(open && {
         width: `calc(100% - ${drawerWidth}px)`,
@@ -39,9 +42,16 @@ export default function NewPaletteFormNav (props) {
 
     const {open, handleDrawerOpen, palettes, colorsArray, savePalette } = props
 
-
+    const [formShowing, setFormShowing] = React.useState(false)
      
+    const showForm = () => {
+      setFormShowing(true)
+    }
 
+    const hideForm = () => {
+      console.log("hidden");
+      setFormShowing(false)
+    }
 
     return (
       <div className="NPFN-root">
@@ -61,20 +71,27 @@ export default function NewPaletteFormNav (props) {
               Create a Palette
             </Typography>
           </Toolbar>
-          <div className="nav-btns">
-            
-            <PaletteMetaForm
-              palettes={palettes}
-              colorsArray={colorsArray}
-              savePalette={savePalette}
-            />
+          <div className="NPFN-nav-btns">
             <Link to="/">
               <Button variant="contained" color="secondary">
                 Go Back
               </Button>
             </Link>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={showForm}
+            >
+              Save Palette
+            </Button>
           </div>
         </AppBar>
+        {formShowing && (<PaletteMetaForm
+          hideForm={hideForm}
+          palettes={palettes}
+          colorsArray={colorsArray}
+          savePalette={savePalette}
+        />)}
       </div>
     );
 }

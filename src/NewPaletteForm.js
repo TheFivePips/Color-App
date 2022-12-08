@@ -51,7 +51,7 @@ export default function NewPaletteForm(props) {
  
   const theme = useTheme();
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const [colorsArray, setColorsArray] = React.useState(props.palettes[0].colors)
 
 
