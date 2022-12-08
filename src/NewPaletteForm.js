@@ -4,24 +4,22 @@ import { useNavigate } from 'react-router';
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import CssBaseline from "@mui/material/CssBaseline";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+
 import Button from "@mui/material/Button";
 import DraggableColorList from './DraggableColorList';
 import { HexColorPicker } from "react-colorful";
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-import { arrayMove } from 'react-sortable-hoc';
-
+import { arrayMoveImmutable } from 'array-move';
+import NewPaletteFormNav from './NewPaletteFormNav';
 
 
 const drawerWidth = 400;
+
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
@@ -42,23 +40,6 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   })
 );
 
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  transition: theme.transitions.create(["margin", "width"], {
-    easing: theme.transitions.easing.sharp,
-    duration: theme.transitions.duration.leavingScreen,
-  }),
-  ...(open && {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: `${drawerWidth}px`,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
-}));
-
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
@@ -75,6 +56,7 @@ export default function NewPaletteForm(props) {
     maxColors: 20,
   };
   const theme = useTheme();
+
   const [open, setOpen] = React.useState(false);
   const [colorsArray, setColorsArray] = React.useState(props.palettes[0].colors)
   const [currentColor, setColor] = React.useState("#aabbcc");
@@ -111,8 +93,11 @@ export default function NewPaletteForm(props) {
   }, [colorsArray, currentColor]);
   
    
-    
-  function handleDrawerOpen() {
+  const handleSetNewPaletteName = (e) => {
+    setNewPaletteName(e)
+  } 
+
+  const  handleDrawerOpen = () => {
     setOpen(true);
   }
 
@@ -153,7 +138,7 @@ export default function NewPaletteForm(props) {
 
   const onSortEnd = ({oldIndex, newIndex}) => {
     setColorsArray(
-      arrayMove(colorsArray, oldIndex, newIndex)
+      arrayMoveImmutable(colorsArray, oldIndex, newIndex)
     )
   }
   const clearColors =() => {
@@ -172,35 +157,7 @@ export default function NewPaletteForm(props) {
   
   return (
     <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: "none" }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Create a Palette
-          </Typography>
-          <ValidatorForm onSubmit={handleSubmit}>
-            <TextValidator
-              label="Palette Name"
-              value={newPaletteName}
-              onChange={setNewPaletteName}
-              validators={["required", "isPaletteNameUnique" ]}
-              errorMessages={["Enter Palette Name", "Palette Name must be Unique"]}
-            />
-            <Button variant="contained" color="secondary" type='submit'>
-              Save Palette
-            </Button>
-          </ValidatorForm>
-        </Toolbar>
-      </AppBar>
+      <NewPaletteFormNav drawerWidth={drawerWidth} open={open} handleSetNewPaletteName={handleSetNewPaletteName} newPaletteName={newPaletteName} handleDrawerOpen={handleDrawerOpen} handleSubmit={handleSubmit}/>
       <Drawer
         sx={{
           width: drawerWidth,
@@ -229,7 +186,12 @@ export default function NewPaletteForm(props) {
           <Button variant="contained" color="secondary" onClick={clearColors}>
             Clear Palette
           </Button>
-          <Button variant="contained" color="primary" disabled={paletteIsFull} onClick={addRandomColor}>
+          <Button
+            variant="contained"
+            color="primary"
+            disabled={paletteIsFull}
+            onClick={addRandomColor}
+          >
             Random Color
           </Button>
         </div>
@@ -243,30 +205,28 @@ export default function NewPaletteForm(props) {
             errorMessages={[
               "This field is required",
               "The color name must be unique",
-              "That color has already been used"
+              "That color has already been used",
             ]}
           />
           <Button
             variant="contained"
             color="primary"
-            style={{ backgroundColor: paletteIsFull? 'grey' : currentColor }}
+            style={{ backgroundColor: paletteIsFull ? "grey" : currentColor }}
             type="submit"
             disabled={paletteIsFull}
-            
           >
-            {paletteIsFull? 'Palette is full' : 'Add Color'}
+            {paletteIsFull ? "Palette is full" : "Add Color"}
           </Button>
         </ValidatorForm>
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
         <DraggableColorList
-         colors={colorsArray}
-         removeColor={removeColor}
-         axis='xy'
-         onSortEnd={onSortEnd}
+          colors={colorsArray}
+          removeColor={removeColor}
+          axis="xy"
+          onSortEnd={onSortEnd}
         />
-        
       </Main>
     </Box>
   );
