@@ -1,21 +1,43 @@
+@use './BreakPoints';
 
 
 
 .ColorBox {
-    width: 20%;
-    height: 25%;
     margin: 0 auto;
     display: inline-block;
     position: relative;
     cursor: pointer;
     margin-bottom: -4px;
+
+    @media (max-width: #{map-get(BreakPoints.$breakpoints, lg)}){
+        width: 20%;
+        height: 25%;
+    }
+    @media (max-width: #{map-get(BreakPoints.$breakpoints, sm)}){
+        width: 50%;
+        height: 10%;
+    }
+    @media (max-width: #{map-get(BreakPoints.$breakpoints, xs)}){
+        width: 100%;
+        height: 5%;
+    }
+   
 }
 
 
 .SingleColorPalette {
     .ColorBox {
+
+        @media (max-width: #{map-get(BreakPoints.$breakpoints, lg)}){
         height: 50%;
-    }
+        }
+        @media (max-width: #{map-get(BreakPoints.$breakpoints, sm)}){
+            height: 25%;
+        }
+        @media (max-width: #{map-get(BreakPoints.$breakpoints, xs)}){
+            height: 11%;
+        }
+        }
 }
 
 .ColorBox.go-back{

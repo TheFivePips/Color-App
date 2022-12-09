@@ -1,0 +1,26 @@
+// Sass variables that define breakpoint values
+$breakpoints: (
+    'xs': 575.98px,
+    'sm': 767.98px,
+    'md': 991.98px,
+    'lg': 1200px,
+    'xl': 2000px,
+);
+
+// Sass variables for writing out media queries
+// $media: (
+//   mobile: '(max-width: #{map-get($breakpoints, xs)})',
+//   landscape: '(max-width: #{map-get($breakpoints, sm)})',
+//   tablet: '(max-width: #{map-get($breakpoints, md)})',
+//   full: '(max-width: #{map-get($breakpoints, lg)})',
+//   // etc.
+// );
+
+
+// $breaks: (
+//   breakpointMobile: unquote(map-get($media, mobile)),
+//   breakpointTLandscape: unquote(map-get($media, landscape)),
+//   breakpointTablet: unquote(map-get($media, tablet)),
+//   breakpointFull: unquote(map-get($media, full)),
+// )
+  

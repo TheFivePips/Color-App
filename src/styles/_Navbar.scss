@@ -1,3 +1,4 @@
+@use './BreakPoints';
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&family=Source+Sans+Pro:ital@1&display=swap');
 .Navbar{
@@ -5,8 +6,15 @@
     align-items: center;
     justify-content: flex-start;
     height: 6vh;
-
+    span{
+        @media (max-width: #{map-get(BreakPoints.$breakpoints, xs)}){
+            margin-left: 10px;
+        }
+    }
+    
 }
+
+
 .logo{
     margin-right: 15px;
     padding: 0 13px;
@@ -16,17 +24,35 @@
     height: 100%;
     display: flex;
     align-items: center;
+    @media (max-width: #{map-get(BreakPoints.$breakpoints, xs)}){
+        display: none;
+    }
 
 }
 .logo a {
     text-decoration: none;
     color: black;
+    
 }
+
 
 .slider {
     width: 340px;
     margin: 0 10px;
     display: inline-block;
+
+    @media (max-width: #{map-get(BreakPoints.$breakpoints, lg)}){
+        width: 350px;
+        
+    }
+    @media (max-width: #{map-get(BreakPoints.$breakpoints, sm)}){
+        width: 250px;
+        
+    }
+    @media (max-width: #{map-get(BreakPoints.$breakpoints, xs)}){
+        width: 150px;
+        
+    }
 }
 
 .rc-slider-track{
