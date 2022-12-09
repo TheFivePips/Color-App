@@ -19,7 +19,7 @@ const drawerWidth = 400;
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: 0,
     height: "calc(100vh - 64px)",
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
@@ -39,7 +39,8 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
-  padding: theme.spacing(0, 1),
+  padding: 0,
+  width: "100%",
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: "flex-end",
@@ -54,10 +55,6 @@ export default function NewPaletteForm(props) {
   const [open, setOpen] = React.useState(true);
   const [colorsArray, setColorsArray] = React.useState(props.palettes[0].colors)
 
-
-
-   
- 
 
   const handleSetColorsArray = (arr) => {
     setColorsArray(arr)

@@ -35,10 +35,6 @@ class App extends Component{
           element={<SCPRouteDetails seeds={this.state.palettes}/>}/>
         <Route path='/palette/new' element={<NewPaletteForm savePalette={this.savePalette} palettes={this.state.palettes}/>}/>
       </Routes>
-      //   <div>
-      //     <Palette palette={generatePalette(seedColors[4])}/>
-
-      //   </div>
     );
   }
 }

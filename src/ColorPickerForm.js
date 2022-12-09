@@ -15,7 +15,7 @@ const ColorPickerForm = (props) => {
 
     const { colorsArray, handleSetColorsArray, clearColors, addRandomColor } = props
 
-    const [currentColor, setColor] = React.useState("#aabbcc");
+    const [currentColor, setColor] = React.useState("#26bedf");
     const [newColorName, setNewColorName] = useHandleChange("");
 
 

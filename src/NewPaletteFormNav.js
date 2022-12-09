@@ -5,9 +5,9 @@ import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import { styled} from "@mui/material/styles";
 import Button from "@mui/material/Button";
+import { AddToPhotos } from "@mui/icons-material";
 
 import { Link } from 'react-router-dom'
 import "./styles/main.scss";
@@ -65,7 +65,7 @@ export default function NewPaletteFormNav (props) {
               edge="start"
               sx={{ mr: 2, ...(open && { display: "none" }) }}
             >
-              <MenuIcon />
+              <AddToPhotos />
             </IconButton>
             <Typography variant="h6" noWrap component="div">
               Create a Palette

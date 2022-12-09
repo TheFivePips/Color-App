@@ -7,3 +7,4 @@ This project has used some updated technologies since it was released. Jss is de
 I have decided to make some changes to the general layout, in a way that makes more sense to me. It does not effect any of the functionality, but will not be identical to the offical final project.
 
 I might replace the sass files with styled componenets since that is more inline with the original intent.
+I could also probably improve the app by using context to increase readability and share global state across multiple componenets. That may come later
