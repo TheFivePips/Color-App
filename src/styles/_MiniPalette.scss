@@ -5,8 +5,22 @@
     padding: 0.5rem;
     position: relative;
     overflow: hidden;
-    &:hover{
-        cursor: pointer;
+    cursor: pointer;
+    &:hover .MP-deleteIcon{
+        opacity: 1;
+    }
+
+    .MP-deleteIcon{
+        color: white;
+        background-color: red;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 2;
+        padding: 7px;
+        opacity: 0;
     }
     .colors {
         background-color: #dae1e4;

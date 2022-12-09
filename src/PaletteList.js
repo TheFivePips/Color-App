@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import MiniPalette from './MiniPalette' ;
 import './styles/main.scss'
 
-const PaletteList = ({palettes}) => {
+const PaletteList = ({palettes, deletePalette}) => {
 
     
    
@@ -17,7 +17,7 @@ const PaletteList = ({palettes}) => {
             </nav>
             <div className="pl-palettes">
             {palettes.map((palette) => (
-                <MiniPalette {...palette} key={palette.paletteName}/>
+                <MiniPalette {...palette} key={palette.paletteName} deletePalette={deletePalette}/>
         
             ))}
             </div>
