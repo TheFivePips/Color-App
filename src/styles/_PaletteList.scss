@@ -1,20 +1,15 @@
-@use './BreakPoints';
+@use './_BreakPoints';
+@use './_TransitionGroup';
 
-// @media (max-width: #{map-get(BreakPoints.$breakpoints, lg)}){
-//     width: 20%;
-//     height: 25%;
-    
-// }
-// @media (max-width: #{map-get(BreakPoints.$breakpoints, sm)}){
-//     width: 50%;
-//     height: 10%;
-    
-// }
-// @media (max-width: #{map-get(BreakPoints.$breakpoints, xs)}){
-//     width: 100%;
-//     height: 5%;
-    
-// }
+
+.fade-exit{
+    opacity: map-get(TransitionGroup.$fade-exit, opacity);
+}
+.fade-exit-active{
+    opacity: map-get(TransitionGroup.$fade-exit-active, "opacity" );
+    transition: map-get(TransitionGroup.$fade-exit-active, "transition" )
+
+}
 
 
 .palette-list{
@@ -24,6 +19,8 @@
     align-items: flex-start;
     justify-content: center;
     overflow: scroll;
+    background-image: url(../images/radiant-gradient.svg);
+    /* background by SVGBackgrounds.com */
 
     .pl-container{
         width: 50%;
@@ -38,6 +35,9 @@
         @media (max-width: #{map-get(BreakPoints.$breakpoints, xs)}){
             width: 70%;
             
+        }
+        .pl-heading{
+            font-size: 2rem;
         }
         
         .pl-nav{

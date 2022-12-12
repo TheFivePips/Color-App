@@ -7,7 +7,7 @@ const MiniPalette = (props) => {
 
   const navigate = useNavigate()
 
-  const {paletteName, emoji, colors, id, deletePalette} = props
+  const {paletteName, emoji, colors, id, openDeleteDialog} = props
 
   const miniColorBoxes = colors.map(color => (
     <div
@@ -19,7 +19,7 @@ const MiniPalette = (props) => {
   ))
   const handleDelete = (e) => {
     e.stopPropagation()
-    deletePalette(id)
+    openDeleteDialog(id)
     
     
   }
