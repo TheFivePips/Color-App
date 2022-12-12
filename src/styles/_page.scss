@@ -1,0 +1,23 @@
+@use './TransitionGroup';
+
+.page {
+    height: map-get(TransitionGroup.$page, height);
+    position: map-get(TransitionGroup.$page, position);
+    width: map-get(TransitionGroup.$page, width);
+    top: map-get(TransitionGroup.$page, top);
+    transition: map-get(TransitionGroup.$page, transition);
+}
+.page-enter {
+    opacity: map-get(TransitionGroup.$page-enter, opacity);
+}
+.page-enter-active {
+    opacity: map-get(TransitionGroup.$page-enter-active, opacity);
+}
+    
+.page-exit-active {
+    opacity: map-get(TransitionGroup.$page-exit-active, opacity);
+}
+    
+    
+
+

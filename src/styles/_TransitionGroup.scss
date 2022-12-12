@@ -8,3 +8,23 @@ $fade-exit-active: (
     "opacity": 0,
     "transition": opacity 500ms ease-out
 );
+
+$page: (
+    "height": 100vh,
+    "position": fixed,
+    "width": 100%,
+    "top": 0,
+    "transition": opacity 0.4s ease-in-out
+);
+$page-enter: (
+    "opactiy": 0,
+
+);
+$page-enter-active: (
+    "opactiy": 1,
+
+);
+$page-exit-active: (
+    "opactiy": 0,
+
+);

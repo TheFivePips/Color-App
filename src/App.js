@@ -7,6 +7,7 @@ import PaletteList from './PaletteList';
 import SCPRouteDetails from './SCPRouteDetails'
 import NewPaletteForm from './NewPaletteForm';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import Page from './Page';
 
 function App() {
   
@@ -38,27 +39,34 @@ function App() {
           <Route
             path="/"
             element={
-              <PaletteList
-                palettes={palettes}
-                deletePalette={deletePalette}
-              />
+              <Page>
+                <PaletteList
+                  palettes={palettes}
+                  deletePalette={deletePalette}
+                />
+              </Page>
             }
           />
           <Route
             path="/palette/:id"
-            element={<PaletteRouteDetails seeds={palettes} />}
+            element={
+              <Page>
+                <PaletteRouteDetails seeds={palettes} />
+              </Page>
+            }
           />
           <Route
             path="/palette/:id/:colorId"
-            element={<SCPRouteDetails seeds={palettes} />}
+            element={
+              <Page>
+                <SCPRouteDetails seeds={palettes} />
+              </Page>
+            }
           />
           <Route
             path="/palette/new"
             element={
-              <NewPaletteForm
-                savePalette={savePalette}
-                palettes={palettes}
-              />
+              <NewPaletteForm savePalette={savePalette} palettes={palettes} />
             }
           />
         </Routes>

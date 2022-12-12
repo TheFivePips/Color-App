@@ -15,7 +15,7 @@ import PaletteMetaForm from "./PaletteMetaForm";
 
 
 
-const drawerWidth = 400;
+const drawerWidth = 360;
 
 const AppBar = styled(MuiAppBar, {
     shouldForwardProp: (prop) => prop !== "open",
@@ -43,6 +43,8 @@ export default function NewPaletteFormNav (props) {
     const {open, handleDrawerOpen, palettes, colorsArray, savePalette } = props
 
     const [formShowing, setFormShowing] = React.useState(false)
+
+    
      
     const showForm = () => {
       setFormShowing(true)

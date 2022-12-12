@@ -9,18 +9,30 @@
         
         margin-right: 1rem;
 
+        @media (max-width: #{map-get(BreakPoints.$breakpoints, md)}){
+           margin-right: 0;
+           justify-content: space-around;
+       
+       }
         @media (max-width: #{map-get(BreakPoints.$breakpoints, xs)}){
             margin-right: 0.5;
+            justify-content: space-between;
         
         }
 
         button{
             margin: 0 0.5rem;
             text-decoration: none;
-            @media (max-width: #{map-get(BreakPoints.$breakpoints, xs)}){
-                margin: 0 .25rem;
-                padding: 0.25rem;;
+            @media (max-width: #{map-get(BreakPoints.$breakpoints, sm)}){
+                margin: 0.25rem;
+                padding: 0.25rem;
+                font-size: 0.8rem;
             }
+            @media (max-width: #{map-get(BreakPoints.$breakpoints, xs)}){
+                margin: 0rem;
+                padding: 0rem;;
+            }
+            
         }
     }
 }

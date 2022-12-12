@@ -48,7 +48,6 @@ const PaletteList = ({palettes, deletePalette}) => {
                 <MiniPalette
                   {...palette}
                   key={palette.paletteName}
-                  //   deletePalette={deletePalette}
                   openDeleteDialog={openDialog}
                 />
               </CSSTransition>

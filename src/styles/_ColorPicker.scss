@@ -5,9 +5,13 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    .CP-btns{
+        display: flex;
+        justify-content: space-around;
+    }
 
     .CP-btns button{
-        margin: 1rem;
+        margin: 0.5rem;
     }
     .CP-picker{
         width: 90%;

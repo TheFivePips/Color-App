@@ -12,9 +12,10 @@ import DraggableColorList from './DraggableColorList';
 import { arrayMoveImmutable } from 'array-move';
 import NewPaletteFormNav from './NewPaletteFormNav';
 import ColorPickerForm from './ColorPickerForm';
+import { seedColors } from './seedColors';
 
 
-const drawerWidth = 400;
+const drawerWidth = 360;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
@@ -53,7 +54,7 @@ export default function NewPaletteForm(props) {
   const theme = useTheme();
 
   const [open, setOpen] = React.useState(true);
-  const [colorsArray, setColorsArray] = React.useState(props.palettes[0].colors)
+  const [colorsArray, setColorsArray] = React.useState(seedColors[0].colors)
 
 
   const handleSetColorsArray = (arr) => {

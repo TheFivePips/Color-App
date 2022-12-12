@@ -48,10 +48,12 @@ const PaletteMetaForm = (props) => {
         emoji: emoji.native
         };
         savePalette(newPalette);
+        setopen('')
         navigate("/");
     };
     const showEmojiPicker =() => {
         setopen('emoji')
+        
     }
 
     return (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 // import { styled } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
 import { Delete } from '@mui/icons-material';
@@ -6,6 +6,7 @@ import './styles/main.scss'
 const MiniPalette = (props) => {
 
   const navigate = useNavigate()
+
 
   const {paletteName, emoji, colors, id, openDeleteDialog} = props
 
@@ -35,5 +36,5 @@ const MiniPalette = (props) => {
 
 }
 
-export default MiniPalette;
+export default memo(MiniPalette);
 

@@ -69,13 +69,18 @@ const ColorPickerForm = (props) => {
             Random Color
           </Button>
         </div>
-        <HexColorPicker color={currentColor} onChange={handleColorChange} className='CP-picker' />
-        <ValidatorForm onSubmit={addNewColor}>
+        <HexColorPicker
+          color={currentColor}
+          onChange={handleColorChange}
+          className="CP-picker"
+        />
+
+        <ValidatorForm onSubmit={addNewColor} instantValidate={false}>
           <TextValidator
             placeholder="Enter a color name"
             className="CP-colorinput"
-            variant='filled'
-            margin='normal'
+            variant="filled"
+            margin="normal"
             value={newColorName}
             onChange={setNewColorName}
             validators={["required", "isColorNameUnique", "isColorUnique"]}
@@ -91,7 +96,7 @@ const ColorPickerForm = (props) => {
             style={{ backgroundColor: paletteIsFull ? "grey" : currentColor }}
             type="submit"
             disabled={paletteIsFull}
-            className='CP-addcolor'
+            className="CP-addcolor"
           >
             {paletteIsFull ? "Palette is full" : "Add Color"}
           </Button>
