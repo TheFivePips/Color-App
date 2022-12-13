@@ -37,7 +37,7 @@ function App() {
       <CSSTransition key={location.key} classNames="fade" timeout={300}>
         <Routes location={location}>
           <Route
-            path="/"
+            path="/Color-App"
             element={
               <Page>
                 <PaletteList
@@ -48,7 +48,7 @@ function App() {
             }
           />
           <Route
-            path="/palette/:id"
+            path="/Color-App/palette/:id"
             element={
               <Page>
                 <PaletteRouteDetails seeds={palettes} />
@@ -56,7 +56,7 @@ function App() {
             }
           />
           <Route
-            path="/palette/:id/:colorId"
+            path="/Color-App/palette/:id/:colorId"
             element={
               <Page>
                 <SCPRouteDetails seeds={palettes} />
@@ -64,7 +64,7 @@ function App() {
             }
           />
           <Route
-            path="/palette/new"
+            path="/Color-App/palette/new"
             element={
               <NewPaletteForm savePalette={savePalette} palettes={palettes} />
             }

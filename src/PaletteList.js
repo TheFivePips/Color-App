@@ -39,7 +39,7 @@ const PaletteList = ({palettes, deletePalette}) => {
         <div className="pl-container">
           <nav className="pl-nav">
             <h1 className="pl-heading">React Colors</h1>
-            <Link to={"/palette/new"}>Create New Palette</Link>
+            <Link to={"/Color-App/palette/new"}>Create New Palette</Link>
           </nav>
 
           <TransitionGroup className="pl-palettes">

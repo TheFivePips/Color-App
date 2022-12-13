@@ -49,7 +49,7 @@ const PaletteMetaForm = (props) => {
         };
         savePalette(newPalette);
         setopen('')
-        navigate("/");
+        navigate("/Color-App/");
     };
     const showEmojiPicker =() => {
         setopen('emoji')

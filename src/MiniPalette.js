@@ -25,7 +25,7 @@ const MiniPalette = (props) => {
     
   }
   return (
-    <div className="main" onClick={() => navigate(`/palette/${id}`)}>
+    <div className="main" onClick={() => navigate(`/Color-App/palette/${id}`)}>
         <Delete onClick={handleDelete} className='MP-deleteIcon' style={{transition: "all 0.3s ease-in-out"}}/>
       <div className="colors">{miniColorBoxes}</div>
       <h5 className="title">

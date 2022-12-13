@@ -74,7 +74,7 @@ export default function NewPaletteFormNav (props) {
             </Typography>
           </Toolbar>
           <div className="NPFN-nav-btns">
-            <Link to="/">
+            <Link to="/Color-App/">
               <Button variant="contained" color="secondary">
                 Go Back
               </Button>
