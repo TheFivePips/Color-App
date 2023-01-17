@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Color-App/static/css/main.262f126f.css",
+    "main.css": "/Color-App/static/css/main.8eaca929.css",
     "main.js": "/Color-App/static/js/main.b0fa95bc.js",
     "static/media/radiant-gradient.svg": "/Color-App/static/media/radiant-gradient.7f899f7eaf8403622da3.svg",
     "index.html": "/Color-App/index.html",
-    "main.262f126f.css.map": "/Color-App/static/css/main.262f126f.css.map",
+    "main.8eaca929.css.map": "/Color-App/static/css/main.8eaca929.css.map",
     "main.b0fa95bc.js.map": "/Color-App/static/js/main.b0fa95bc.js.map"
   },
   "entrypoints": [
-    "static/css/main.262f126f.css",
+    "static/css/main.8eaca929.css",
     "static/js/main.b0fa95bc.js"
   ]
 }
